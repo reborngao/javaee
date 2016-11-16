@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.reborn</groupId>
-	<artifactId>reborm</artifactId>
+	<artifactId>reborn</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
@@ -101,7 +101,8 @@
 	</dependencies>
 	<build>
 		<!-- Maven定制化打包后的包名(加入时间戳) finalName 生成最后的文件的样式 -->
-		<finalName>${project.artifactId}_${project.version}_${maven.build.timestamp}</finalName>
+		<!--  <finalName>${project.artifactId}_${project.version}_${maven.build.timestamp}</finalName>  -->
+		<!-- <finalName>${project.artifactId}</finalName> -->
 		<resources>
 			<resource>
 				<!--directory: 资源所在的位置 -->
@@ -125,7 +126,7 @@
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<configuration>
-					<port>80</port>
+					<port>8080</port>
 					<path>/</path>
 					<url>http://112.74.167.175/manager/text</url>
 					<username>tomcat</username>
