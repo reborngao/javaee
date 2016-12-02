@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<input type="text"/>
 	<div style="float: left;">
 							<i><img  id="codeImg" alt="点击更换"
 								title="点击更换" src="code" /></i>
