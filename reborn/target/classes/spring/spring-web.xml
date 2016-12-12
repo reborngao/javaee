@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+	<!--扫描相关的controller -->
+	<context:component-scan base-package="com.reborn.controller" />
+	<context:property-placeholder location="classpath:config.properties" ignore-unresolvable="true"/> 
+
+	<!--配置JSP 显示ViewResolver -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- 决定视图类型，如果添加了jstl支持（即有jstl.jar），那么默认就是解析为jstl视图 -->
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<!-- 视图前缀 -->
+		<property name="prefix" value="/WEB-INF/${uistyle}/jsp/" />
+		<!-- 视图后缀 -->
+		<property name="suffix" value=".jsp" />
+	</bean>
+	<!--简化配置: 1、自动注册DefaultAnnotationHandlerMapping,AnnotationMethodHandlerAdapter 
+		2、提供一系列:数据绑定,数字和日期的format,@NumberFormat,@DataTimeFormat,xml,json默认读写支持 -->
+	<mvc:annotation-driven />
+	<!-- 资源映射 -->
+	<mvc:resources location="/WEB-INF/${uistyle}/css/" mapping="/css/**" />
+	<mvc:resources location="/WEB-INF/${uistyle}/js/" mapping="/js/**" />
+	<mvc:resources location="/WEB-INF/${uistyle}/images/" mapping="/images/**" />
+
+	<bean
+		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+			 <!-- 设置 jackson 的null 为""-->
+				<bean
+					class="org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter">
+					<property name="supportedMediaTypes"> <!--设置 返回的JSON字符串的编码 -->
+						<list>
+							<value>text/plain;charset=UTF-8</value>
+							<value>application/json;charset=UTF-8</value>
+						</list>
+					</property>
+					<property name="objectMapper" >
+						<bean class="com.reborn.utils.ObjectMapperCustomer"></bean>
+					</property>
+				</bean>
+			</list>
+		</property>
+	</bean>
+</beans>
