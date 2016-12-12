@@ -1,24 +1,21 @@
 package com.reborn.controller;
 
-import javax.annotation.Resource;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
-import org.mybatis.spring.SqlSessionTemplate;
-import org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.reborn.common.util.Const;
+import com.reborn.common.util.Jurisdiction;
+import com.reborn.common.util.Tools;
 import com.reborn.controller.base.BaseController;
-import com.reborn.service.UserService;
-import com.reborn.util.Const;
-import com.reborn.util.Jurisdiction;
+import com.reborn.manage.service.UserService;
 import com.reborn.util.PageData;
-import com.reborn.util.Tools;
 
 /**
  * 
@@ -35,9 +32,8 @@ import com.reborn.util.Tools;
 @Controller
 public class LoginController  extends BaseController{
 	
-	@Autowired
+	 @Autowired
 	UserService userService;
-	
 	
 	/**
 	 * 访问登录页
@@ -75,7 +71,6 @@ public class LoginController  extends BaseController{
 				String PASSWORD  = KEYDATA[1];	//登录过来的密码
 				if(Tools.notEmpty(sessionCode)&&sessionCode.equals(code)){///判断登录验证码
 					//String passwd = new SimpleHash("SHA-1", USERNAME, PASSWORD).toString();	//密码加密
-					userService.login(USERNAME, PASSWORD);
 					//shiro加入身份验证
 				   Subject  subject= 	SecurityUtils.getSubject();
 				   UsernamePasswordToken  token=new UsernamePasswordToken(USERNAME, PASSWORD);

@@ -53,7 +53,7 @@
 	</bean> 
 	<!-- 事物处理 -->
   	<aop:config >
-			<aop:pointcut id="pc" expression="execution(* com.reborn.service..*(..))" />
+			<aop:pointcut id="pc" expression="execution(* com.reborn.manage.service.*.*(..))" />
 			<aop:advisor advice-ref="txAdvice" pointcut-ref="pc"/>
 	</aop:config>
  		<tx:advice id="txAdvice" transaction-manager="transactionManager">

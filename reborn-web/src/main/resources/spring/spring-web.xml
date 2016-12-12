@@ -46,7 +46,7 @@
 						</list>
 					</property>
 					<property name="objectMapper" >
-						<bean class="com.reborn.util.ObjectMapperCustomer"></bean>
+						<bean class="com.reborn.common.util.ObjectMapperCustomer"></bean>
 					</property>
 				</bean>
 			</list>

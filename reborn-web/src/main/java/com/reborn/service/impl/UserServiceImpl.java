@@ -10,7 +10,7 @@ import com.reborn.pojo.Menu;
 import com.reborn.pojo.User;
 import com.reborn.service.UserService;
 
-@Service
+
 public class UserServiceImpl implements UserService {
 
 	/*@Autowired

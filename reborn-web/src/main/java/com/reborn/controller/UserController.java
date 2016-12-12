@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 
-import com.reborn.dto.BaseResult;
 import com.reborn.eu.EUMenu;
 import com.reborn.pojo.Menu;
 import com.reborn.pojo.User;
@@ -26,26 +25,26 @@ import com.reborn.service.UserService;
  */
 @Controller
 public class UserController {
-	@Autowired
-	UserService userService;
+/*	@Autowired
+	UserService userService;*/
 	
 	/***
 	 *  登录
 	 * @param username
 	 * @param password
 	 * @return
-	 */
+	 *//*
 	@RequestMapping(value="/login",method=RequestMethod.POST,produces={"application/json;charset=UTF-8"})
 	@ResponseBody
 	public BaseResult<User> login(String username,String password){
-		User  user= userService.login(username, password);
+		User  user= null;
 		if(user!=null)
 			return new BaseResult<User>(BaseResult.STATUS_SUCCESS, user);
 		else
 			return new BaseResult<User>(BaseResult.STATUS_ERROR, "用户名和密码不正确！");
 	}
 	
-
+*/
 	
 	/***
 	 * {
@@ -96,15 +95,15 @@ public class UserController {
 	 *  获取功能菜单
 	 * @param parentId
 	 * @return
-	 */
+	 *//*
 	@RequestMapping(value="/getMeunList",produces={"application/json;charset=UTF-8"})
 	@ResponseBody
 	public BaseResult<List<EUMenu>> getMeunList(@RequestParam( defaultValue="0" ) int parentId){
-		return new  BaseResult<List<EUMenu>>(BaseResult.STATUS_SUCCESS,userService.getMeunList(parentId));
+		return new  BaseResult<List<EUMenu>>(BaseResult.STATUS_SUCCESS,"");
 	}
 	@RequestMapping(value="/getMeunAll",produces={"application/json;charset=UTF-8"})
 	@ResponseBody
 	public List<Menu> getMeunAll(){
-		return userService.getMeunAll();
-	}
+		return null;
+	}*/
 }
