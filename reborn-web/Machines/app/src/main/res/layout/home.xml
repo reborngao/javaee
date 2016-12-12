@@ -1,0 +1,126 @@
+
+<com.visabao.machine.widget.SlidingRelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    android:paddingRight="15dp"
+    android:paddingLeft="15dp"
+    android:paddingBottom="15dp"
+    android:paddingTop="15dp"
+    >
+
+    <!--<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="259dp">
+        <com.visabao.machine.widget.GalleryView
+            android:id="@+id/gallery"
+            android:layout_width="match_parent"
+            android:unselectedAlpha="0.3"
+            android:spacing="-40dp"
+            android:layout_height="match_parent"></com.visabao.machine.widget.GalleryView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/origin_hover"
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                 android:layout_marginRight="10dp"
+                android:src="@mipmap/origin"
+
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/origin_hover"
+                />
+        </LinearLayout>
+    </RelativeLayout>-->
+    <com.visabao.machine.widget.SlideShowView
+        android:id="@+id/home_slideshowview"
+        android:layout_width="match_parent"
+        android:layout_height="259dp">
+    </com.visabao.machine.widget.SlideShowView>
+  <!--  <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="89dp"
+        android:id="@+id/ll_title"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        >
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+
+            android:layout_height="match_parent"
+            android:background="@mipmap/home_icon2"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_height="match_parent"
+            android:background="@mipmap/home_icon1"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="@mipmap/home_icon3"
+            android:layout_height="match_parent" />
+    </LinearLayout>-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <GridView
+            android:id="@+id/home_gridview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:numColumns="5"
+            android:listSelector="@null"
+            android:layout_marginTop="15dp"
+            android:verticalSpacing="15dp"
+            android:scrollbars="none"
+            android:horizontalSpacing="15dp"
+            ></GridView>
+        <include
+            layout="@layout/no_data"
+            ></include>
+    </RelativeLayout>
+
+</LinearLayout>
+    <Button
+        android:id="@+id/btn_refund"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:text="退款"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        android:background="@color/orange"
+        />
+</com.visabao.machine.widget.SlidingRelativeLayout>

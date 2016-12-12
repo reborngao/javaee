@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.visabao.machine.widget.SlidingRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:clickable="true"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/title_height"
+            android:orientation="horizontal"
+            android:background="@color/title_bg"
+
+            android:gravity="center_vertical"
+            >
+            <ImageView
+                android:layout_width="82dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:id="@+id/visa_title_icon"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/title_height"
+                android:gravity="center_vertical"
+                android:id="@+id/visa_tv_title"
+                android:textSize="@dimen/title_textsize"
+                android:layout_marginLeft="20dp"
+                />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/line"
+            />
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/message_tab_radio_grop"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            >
+                <RadioButton
+                    style="@style/messageRadioStyle"
+                    android:id="@+id/message_rb_date"
+                    android:text="选择出行日期"
+                    android:checked="false" />
+            <RadioButton
+                style="@style/messageRadioStyle"
+                android:id="@+id/message_rb_message"
+                android:text="添加联系人"
+                android:checked="false" />
+            <RadioButton
+                android:id="@+id/message_rb_add"
+                style="@style/messageRadioStyle"
+                android:text="添加签证人"
+                />
+            <RadioButton
+                style="@style/messageRadioStyle"
+                 android:id="@+id/message_rb_select"
+                android:text="选择服务"
+                />
+            <RadioButton
+                style="@style/messageRadioStyle"
+                android:id="@+id/message_rb_conmit"
+                android:text="确认订单"
+                />
+            <RadioButton
+                style="@style/messageRadioStyle"
+                android:id="@+id/message_rb_complete"
+                android:text="完成订单"
+                />
+        </RadioGroup>
+
+        <FrameLayout
+            android:id="@+id/message_contentview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            ></FrameLayout>
+</LinearLayout>
+
+
+</com.visabao.machine.widget.SlidingRelativeLayout>

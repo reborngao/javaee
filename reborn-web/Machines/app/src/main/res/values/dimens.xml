@@ -1,0 +1,30 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <!--签到页面-->
+    <dimen name="login_radius">9dp</dimen>
+    <dimen name="login_left_width">100dp</dimen>
+
+    <dimen name="border_width">1dp</dimen>
+    <dimen name="title_height">67dp</dimen>
+    <dimen name="title_textsize">22dp</dimen>
+    <dimen name="main_left_width">120dp</dimen>
+    <dimen name="message_scrollview">385dp</dimen>
+    <dimen name="title_line_height">10dp</dimen>
+    <dimen name="btn_margin_bottom">15dp</dimen>
+    <!--填写签证信息-->
+    <dimen name="message_left_width">150dp</dimen>
+    <dimen name="message_right_width">228dp</dimen>
+    <dimen name="message_right_heigt">37dp</dimen>
+    <dimen name="message_height">65dp</dimen>
+    <dimen name="message_content_font_size">20dp</dimen>
+    <dimen name="message_select_left">100dp</dimen>
+    <dimen name="home_iv_height">116dp</dimen>
+    <dimen name="home_iv_city_height">160dp</dimen>
+    <dimen name="height">570dp</dimen>
+    <dimen name="input_scroll_height">120dp</dimen>
+    <dimen name="scroll_height">330dp</dimen>
+    <dimen name="global_scroll_height">380dp</dimen>
+    <dimen name="global_input_scroll_height">180dp</dimen>
+</resources>

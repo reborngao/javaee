@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="560dp"
+        android:orientation="horizontal"
+
+        >
+
+        <RadioGroup
+            android:id="@+id/mian_tab_gadio_group"
+            android:layout_width="@dimen/main_left_width"
+            android:layout_height="560dp"
+            android:gravity="center"
+            android:checkedButton="@+id/tab_home"
+            android:orientation="vertical"
+            android:background="@drawable/tab_right_line"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7.5dp"
+                android:src="@mipmap/ping_logo"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/line"
+                android:layout_marginTop="7dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                />
+            <RadioButton
+                style="@style/tabStyle"
+                android:id="@+id/tab_home"
+
+                android:drawableTop="@drawable/home"
+                android:checked="false" />
+            <RadioButton
+                style="@style/tabStyle"
+                android:tag="67"
+                android:drawableTop="@drawable/asia"
+                android:id="@+id/tab_asia"
+
+                android:checked="false" />
+            <RadioButton
+                style="@style/tabStyle"
+                android:drawableTop="@drawable/europe"
+                android:id="@+id/tab_europe"
+                android:tag="66"
+                />
+            <RadioButton
+                style="@style/tabStyle"
+                android:drawableTop="@drawable/america"
+                android:id="@+id/tab_america"
+                android:tag="62"
+                />
+            <RadioButton
+                style="@style/tabStyle"
+                android:tag="63"
+                android:drawableTop="@drawable/oceanica"
+                android:id="@+id/tab_oceanica"
+                />
+
+            <RadioButton
+                style="@style/tabStyle"
+                android:drawableTop="@drawable/africa"
+                android:id="@+id/tab_africa"
+                android:tag="64"
+                android:checked="false" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:id="@+id/rl_management_guidelines"
+                android:background="@color/orange">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_centerInParent="true"
+                    >
+                    <TextView
+                        android:id="@+id/mian_tv_guidelines"
+                        android:layout_width="wrap_content"
+                        android:text="@string/main_management_guidelines"
+                        android:textSize="15dp"
+                        android:textColor="@color/white"
+                        android:layout_height="wrap_content" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="15dp"
+                        android:layout_marginTop="3dp"
+                        android:src="@mipmap/arrow_right"/>
+                </LinearLayout>
+            </RelativeLayout>
+
+        </RadioGroup>
+
+        <FrameLayout
+            android:id="@+id/mian_tab_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            ></FrameLayout>
+    </LinearLayout>
+
+</RelativeLayout>

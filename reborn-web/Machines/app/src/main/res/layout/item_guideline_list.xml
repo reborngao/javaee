@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="15dp"
+    android:paddingBottom="15dp">
+<ImageView
+    android:layout_width="170dp"
+    android:id="@+id/item_iv_icon"
+    android:layout_height="120dp"
+    android:src="@mipmap/city_icon9"
+
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_toRightOf="@+id/item_iv_icon"
+        android:layout_centerVertical="true"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/item_iv_icon"
+            android:id="@+id/item_tv_title"
+            android:text="护照有效期在离开荷兰后仍有六个月"
+            android:textSize="18dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/item_iv_icon"
+            android:id="@+id/item_tv_desc"
+            android:layout_marginTop="10dp"
+            android:text="持焕发护照者,需提供所有旧护照原件"
+            android:textSize="16dp"
+            />
+    </LinearLayout>
+
+
+</RelativeLayout>

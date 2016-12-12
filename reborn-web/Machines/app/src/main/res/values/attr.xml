@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MianRadioButton">
+        <attr name="tabTopRightBackground" format="reference|color"></attr>
+        <attr name="tabIcon" format="reference"></attr>
+        <attr name="tabText" format="reference"></attr>
+        <attr name="tabTextColor" format="reference"></attr>
+    </declare-styleable>
+
+</resources>
