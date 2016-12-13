@@ -33,9 +33,7 @@ public class DaoSupport  implements DAO{
 	 */
 	public Object findForObject(String sqlName, Object paramObj)
 			throws Exception {
-		//sessionTemplate.selectOne(sqlName, paramObj)
-		System.out.println(sessionTemplate+"===============================");
-		return null;
+		return sessionTemplate.selectOne(sqlName, paramObj);
 	}
 
 }
