@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD SQL Map Config 3.0//EN"  
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+	
+	<!-- 
+		setting节点里配置的值会直接改写Configuration对应的变量值，
+		这些变量描述的是Mybatis的全局运行方式，如果对这些属性的含义不熟悉的话建议不要配置，
+		使用默认值即可。下面这个表格描述了各个配置项的含义和默认值：
+		 
+		cacheEnabled           		这个配置使全局的映射器启用或禁用缓存。                                                  true | false    默认值    true
+		lazyLoadingEnabled     		全局启用或禁用延迟加载。当禁用时，所有关联对象都会即时加载。            true | false    默认值     true
+		aggressiveLazyLoading    	当启用时，有延迟加载属性的对象在被调用时将会完全加载任意属性。         true | false    默认值     true
+								 	否则，每种属性将会按需要加载。
+		multipleResultSetsEnabled   允许或不允许多种结果集从一个单独的语句中返回（需要适合的驱动）         true | false    默认值     true
+		useColumnLabel 				使用列标签代替列名。不同的驱动在这方便表现不同。
+									参考驱动文档或充分测试两种方法来决定所使用的驱动。				    true | false    默认值     true
+		useGeneratedKeys			允许JDBC支持生成的键。需要适合的驱动。							true | false    默认值     true
+									如果设置为true则这个设置强制生成的键被使用，
+									尽管一些驱动拒绝兼容但仍然有效（比如Derby）。
+		autoMappingBehavior			指定MyBatis如何自动映射列到字段/属性。PARTIAL只会自动映射简单，      NONE,PARTIAL,FULL   默认值  PARTIAL
+									没有嵌套的结果。FULL会自动映射任意复杂的结果（嵌套的或其他情况）。
+	 -->
+<configuration>
+	<settings>
+		 <setting name="cacheEnabled" value="true" /><!-- 全局映射器启用缓存 -->   
+        <setting name="useGeneratedKeys" value="true" /> 
+         <setting name="defaultExecutorType" value="REUSE" /> 
+	</settings>
+</configuration>
