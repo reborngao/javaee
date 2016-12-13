@@ -1,21 +1,24 @@
 package com.reborn.controller;
 
 
+import javax.annotation.Resource;
+
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.reborn.common.base.BaseController;
 import com.reborn.common.util.Const;
 import com.reborn.common.util.Jurisdiction;
+import com.reborn.common.util.PageData;
 import com.reborn.common.util.Tools;
-import com.reborn.controller.base.BaseController;
 import com.reborn.manage.service.UserService;
-import com.reborn.util.PageData;
 
 /**
  * 
@@ -30,10 +33,13 @@ import com.reborn.util.PageData;
 * @version V1.0
  */
 @Controller
+
 public class LoginController  extends BaseController{
 	
 	 @Autowired
 	UserService userService;
+	 
+	 
 	
 	/**
 	 * 访问登录页
@@ -41,9 +47,8 @@ public class LoginController  extends BaseController{
 	 */
 	@RequestMapping("/login_toLogin")
 	public ModelAndView toLogin(){
-		ModelAndView  mv=getModeAndView();
+		ModelAndView  mv=getModelAndView();
 		mv.setViewName("login");
-		
 		return  mv;
 	}
 	
@@ -52,8 +57,7 @@ public class LoginController  extends BaseController{
 	 * 请求登录，验证用户
 	 */
 	@RequestMapping("/login_login")
-	public Object login(){
-		System.out.println("================");
+	public Object login() throws Exception{
 		PageData pd=new PageData();
 		pd = this.getPageData();
 		String errInfo = "";
@@ -69,10 +73,12 @@ public class LoginController  extends BaseController{
 			else{
 				String USERNAME = KEYDATA[0];	//登录过来的用户名
 				String PASSWORD  = KEYDATA[1];	//登录过来的密码
-				if(Tools.notEmpty(sessionCode)&&sessionCode.equals(code)){///判断登录验证码
+				if(Tools.notEmpty(sessionCode)&&sessionCode.equalsIgnoreCase(code)){///判断登录验证码
 					//String passwd = new SimpleHash("SHA-1", USERNAME, PASSWORD).toString();	//密码加密
+					userService.getUserByNameAndPwd(pd);
 					//shiro加入身份验证
 				   Subject  subject= 	SecurityUtils.getSubject();
+				   
 				   UsernamePasswordToken  token=new UsernamePasswordToken(USERNAME, PASSWORD);
 				  
 				   try { 

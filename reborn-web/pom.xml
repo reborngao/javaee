@@ -10,52 +10,13 @@
 	<groupId>com.reborn</groupId>
 	<artifactId>reborn-web</artifactId>
 	<packaging>war</packaging>
-	
-
-
 	<dependencies>
 		<dependency>
 			<groupId>com.reborn.manage.service</groupId>
   			<artifactId>reborn-manage-service</artifactId>
   			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-	
-		<!--mybatis 数据访问层 start -->
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<!-- <scope>runtime</scope> -->
-		</dependency>
-		<dependency>
-			<groupId>org.mybatis</groupId>
-			<artifactId>mybatis</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>druid</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.mybatis</groupId>
-			<artifactId>mybatis-spring</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-jdbc</artifactId>
-		</dependency>
-
-		<!--mybatis 数据访问层 end -->
-		<!--spring start -->
-
-		<!--spring end -->
-
 		<!--springmvc 控制层 start -->
-		
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<scope>provided</scope>
-			<version>3.1.0</version>
-		</dependency>
 		<dependency>
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
@@ -66,7 +27,6 @@
 			<artifactId>standard</artifactId>
 			<version>1.1.2</version>
 		</dependency>
-		
 		
 		<!--springmvc 控制层 end -->
 		

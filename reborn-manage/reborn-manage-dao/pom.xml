@@ -7,4 +7,30 @@
   </parent>
   <groupId>com.reborn.manage.dao</groupId>
   <artifactId>reborn-manage-dao</artifactId>
+ <dependencies>
+ 	<!--mybatis 数据访问层 start -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<!-- <scope>runtime</scope> -->
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+		</dependency>
+
+		<!--mybatis 数据访问层 end -->
+ </dependencies>
 </project>
