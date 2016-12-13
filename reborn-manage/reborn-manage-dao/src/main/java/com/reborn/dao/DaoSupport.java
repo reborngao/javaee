@@ -5,6 +5,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 
+
+/**
+ * 
+* @Title DAO 实现类
+
+* @Description: TODO
+
+* @author reborngao  
+
+* @date 2016年12月13日 
+ 
+* @version V1.0
+ */
+
 @Repository
 public class DaoSupport  implements DAO{
 	
