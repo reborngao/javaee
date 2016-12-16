@@ -19,6 +19,9 @@
 		<sql id="tableName">
 			SYS_USER
 		</sql>
+		<sql id="roleTableName">
+			SYS_ROLE
+		</sql>
 		<!--字段-->
 		<sql id="Field">
 			USER_ID,
@@ -49,7 +52,13 @@
 			LAST_LOGIN=#{LAST_LOGIN} 
 			WHERE USER_ID=#{USER_ID}
 		</update>
+		<!-- 通过用户ID获取用户信息和角色信息 -->
 		<select id="getUserAndRoleById" parameterType="String" resultType="User">
-		
+		   SELECT * FROM 
+		   <include refid="tableName"></include> u 
+		   LEFT JOIN 
+		   <include refid="roleTableName"></include> r 
+		   ON u.ROLE_ID=r.ROLE_ID  
+		   WHERE u.USER_ID=#{USER_ID}
 		</select>
 </mapper>	

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="M">
+
+
+	<resultMap type="Menu" id="menuResultMap">
+		<id column="MENU_ID" property="menuId"/>
+		<result column="MENU_NAME" property="menuName"/>
+		<result column="PARENT_ID" property="parentId"/>
+		<result column="MENU_URL" property="menuUrl"/>
+	</resultMap>
+	<!-- 表名 -->
+	<sql id="tableName">
+		SYS_MENU
+	</sql>
+	<!--通过ID获取其子一级菜单 -->
+	<select id="listSubMenuByParentId" parameterType="String" resultMap="menuResultMap">
+		SELECT * FROM <include refid="tableName"/> WHERE 
+		PARENT_ID=#{parentId}
+	</select>
+</mapper>

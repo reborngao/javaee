@@ -7,7 +7,7 @@ public class Menu {
 
     private Integer parentId;
 
-    private String url;
+    private String menuUrl;
 
     public Integer getMenuId() {
         return menuId;
@@ -32,12 +32,13 @@ public class Menu {
     public void setParentId(Integer parentId) {
         this.parentId = parentId;
     }
+	public String getMenuUrl() {
+		return menuUrl;
+	}
 
-    public String getUrl() {
-        return url;
-    }
+	public void setMenuUrl(String menuUrl) {
+		this.menuUrl = menuUrl;
+	}
 
-    public void setUrl(String url) {
-        this.url = url == null ? null : url.trim();
-    }
+    
 }
