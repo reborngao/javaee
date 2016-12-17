@@ -171,7 +171,7 @@ input[type='text'], input[type='password'] {
 				</div>
 				<div class="form-actions">
 					<div style="width: 86%; padding-left: 3%;">
-						<div style="float: left; margin-top:">
+						<div style="float: left; ">
 							<i> <img src="static/login/images/yan.png" style="height: 30px;" /></i>
 						</div>
 						<div style="float: left; margin-left: 5px;">
@@ -207,8 +207,39 @@ input[type='text'], input[type='password'] {
 					data:{KEYDATA:code,tm:new Date().getTime()},
 					cache:false,
 					success:function (data){
-						alert("0000");
+						if("success" == data.result){
+							window.location.href="main/index";
+						}
+						else if("usererror" == data.result){
+							$("#loginName").tips({
+								msg:"用户名或密码有误",
+								side:1,
+								bg:"#FF5080",
+								time:15});
+							$("#loginName").focus();
+						}
+						else if("codeerror"==data.result){
+							
+							$("#loginName").tips({
+								msg:"验证码输入有误",
+								side:1,
+								time:15,
+								bg:"#FF5080"
+							});
+							$("#code").focus();
+						}
+						else{
+						 	$("#loginName").tips({
+								msg:"缺少参数",
+								side:1,
+								time:15,
+								bg:"#FF5080"
+							});
+							$("#loginName").focus();
+							//showfh();
+						}
 					}
+					
 				});
 				
 			}

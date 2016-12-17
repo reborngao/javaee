@@ -26,117 +26,114 @@ public class PageData extends HashMap   implements Map{
    public  static final String  KEYDATA="KEYDATA";
 	
 	private static final long serialVersionUID = 1L;
-	HttpServletRequest request;
+	
 	Map map = null;
-	public PageData (HttpServletRequest request){
-		Map returnMap = new HashMap(); 
+	HttpServletRequest request;
+	public PageData(HttpServletRequest request){
 		this.request = request;
 		Map properties = request.getParameterMap();
-		Iterator iterator= properties.entrySet().iterator();
+		Map returnMap = new HashMap(); 
+		Iterator entries = properties.entrySet().iterator(); 
 		Map.Entry entry; 
 		String name = "";  
 		String value = "";  
-		while(iterator.hasNext()){
-			entry= (Map.Entry) iterator.next();
-			name=(String)entry.getKey();
-			Object  valueObj= entry.getValue();
-			 if(null==valueObj){
-				 value="";
-			 }
-			 else if(valueObj instanceof String[]){
-				 String [] values=(String[]) valueObj;
-				 for(String s:values){
-					 value+=s+",";
-				 }
-				 value=value.substring(0,value.length()-1);
-			 }
-			 else{
-				 value=valueObj.toString();
-			 }
-			 returnMap.put(name, value);
-		}  
+		while (entries.hasNext()) {
+			entry = (Map.Entry) entries.next(); 
+			name = (String) entry.getKey(); 
+			Object valueObj = entry.getValue(); 
+			if(null == valueObj){ 
+				value = ""; 
+			}else if(valueObj instanceof String[]){ 
+				String[] values = (String[])valueObj;
+				for(int i=0;i<values.length;i++){ 
+					 value = values[i] + ",";
+				}
+				value = value.substring(0, value.length()-1); 
+			}else{
+				value = valueObj.toString(); 
+			}
+			returnMap.put(name, value); 
+		}
 		map = returnMap;
 	}
 	
-	public PageData(){
-		map=new HashMap();
+	public PageData() {
+		map = new HashMap();
 	}
 	
-	
-	@Override
-	public void clear() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public boolean containsKey(Object key) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean containsValue(Object value) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public Set entrySet() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	@Override
 	public Object get(Object key) {
-		// TODO Auto-generated method stub
-		return null;
+		Object obj = null;
+		if(map.get(key) instanceof Object[]) {
+			Object[] arr = (Object[])map.get(key);
+			obj = request == null ? arr:(request.getParameter((String)key) == null ? arr:arr[0]);
+		} else {
+			obj = map.get(key);
+		}
+		return obj;
 	}
-
-	@Override
-	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+	
+	public String getString(Object key) {
+		return (String)get(key);
 	}
-
-	@Override
-	public Set keySet() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
+	@SuppressWarnings("unchecked")
 	@Override
 	public Object put(Object key, Object value) {
-		// TODO Auto-generated method stub
-		return null;
+		return map.put(key, value);
 	}
-
-	@Override
-	public void putAll(Map m) {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 	@Override
 	public Object remove(Object key) {
-		// TODO Auto-generated method stub
-		return null;
+		return map.remove(key);
 	}
 
-	@Override
+	public void clear() {
+		map.clear();
+	}
+
+	public boolean containsKey(Object key) {
+		// TODO Auto-generated method stub
+		return map.containsKey(key);
+	}
+
+	public boolean containsValue(Object value) {
+		// TODO Auto-generated method stub
+		return map.containsValue(value);
+	}
+
+	public Set entrySet() {
+		// TODO Auto-generated method stub
+		return map.entrySet();
+	}
+
+	public boolean isEmpty() {
+		// TODO Auto-generated method stub
+		return map.isEmpty();
+	}
+
+	public Set keySet() {
+		// TODO Auto-generated method stub
+		return map.keySet();
+	}
+
+	@SuppressWarnings("unchecked")
+	public void putAll(Map t) {
+		// TODO Auto-generated method stub
+		map.putAll(t);
+	}
+
 	public int size() {
 		// TODO Auto-generated method stub
-		return 0;
+		return map.size();
 	}
 
-	@Override
 	public Collection values() {
 		// TODO Auto-generated method stub
-		return null;
+		return map.values();
 	}
-
-	public String getString(String key) {
-		return (String)map.get(key);
-	}
+	
+	
+	
 	
 }

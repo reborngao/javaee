@@ -25,5 +25,17 @@ public interface DAO {
 	 * @return
 	 * @throws Exception
 	 */
-	public Object findForObject(String sqlName, Object paramObj) throws Exception;
+	public <T> T findForObject(String sqlName, Object paramObj) throws Exception;
+	
+	
+	/**
+	 * 
+	 * @Title: update   
+	 * @Description: 修改对象 
+	 * @param: @param sqlName 		
+	 * @param: @param paramObj     
+	 * @return: void       
+	 * @throws
+	 */
+	public void update(String sqlName, Object paramObj);
 }

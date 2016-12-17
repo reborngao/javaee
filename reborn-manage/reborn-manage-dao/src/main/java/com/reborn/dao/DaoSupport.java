@@ -6,6 +6,8 @@ import org.springframework.stereotype.Repository;
 
 
 
+
+
 /**
  * 
 * @Title DAO 实现类
@@ -31,9 +33,19 @@ public class DaoSupport  implements DAO{
 	 * @return
 	 * @throws Exception
 	 */
-	public Object findForObject(String sqlName, Object paramObj)
+	public <T> T findForObject(String sqlName, Object paramObj)
 			throws Exception {
-		return sessionTemplate.selectOne(sqlName, paramObj);
+		return sessionTemplate.selectOne(sqlName,paramObj);
 	}
-
+	/**
+	 * 
+	 * <p>Title: update</p>   
+	 * <p>Description: 修改对象 </p>   
+	 * @param sqlName   配置文件的sql
+	 * @param paramObj   参数
+	 * @see com.reborn.dao.DAO#update(java.lang.String, java.lang.Object)
+	 */
+	public void update(String sqlName, Object paramObj) {
+		sessionTemplate.update(sqlName,paramObj);
+	}
 }

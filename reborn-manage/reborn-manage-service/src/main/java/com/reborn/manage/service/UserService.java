@@ -1,8 +1,7 @@
 package com.reborn.manage.service;
 
-import java.util.Map;
-
 import com.reborn.common.util.PageData;
+import com.reborn.pojo.User;
 
 
 
@@ -11,12 +10,29 @@ public interface UserService {
 	/**
 	 * 
 	 * @Title: getUserByNameAndPwd   
-	 * @Description: 登录判断
+	 * @Description: 登录判断 
 	 * @param: @param pd
 	 * @param: @return
 	 * @param: @throws Exception      
-	 * @return: Map<String,Object>      
-	 * @throws
+	 * @return: User      
 	 */
-	public Map<String, Object> getUserByNameAndPwd(PageData pd)throws Exception;
+	public User getUserByNameAndPwd(PageData user)throws Exception;
+	
+	/**
+	 * 
+	 * @Title: updateLastLogin   
+	 * @Description: 更新登录时间  
+	 * @param: @param pd      
+	 * @return: void      
+	 */
+	public void updateLastLogin(PageData pd);
+	/**
+	 * 
+	 * @Title: getUserAndRoleById   
+	 * @Description: 通过用户ID获取用户信息和角色信息 
+	 * @param: @param userId
+	 * @param: @return      
+	 * @return: User
+	 */
+	public User getUserAndRoleById(String userId)throws Exception;
 }

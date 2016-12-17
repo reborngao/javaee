@@ -39,4 +39,12 @@ public class BaseController {
 		 HttpServletRequest request= ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getRequest();
 		 return request;
 	}
+	protected void logBefore(Logger logger,String interfaceName){
+		logger.info("start");
+		logger.info(interfaceName);
+	}
+	protected void logAfter(Logger logger){
+		logger.info("end");
+	}
+	
 }
