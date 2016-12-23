@@ -1,6 +1,7 @@
 package com.reborn.dao;
 
-import com.sun.tools.javac.util.List;
+import java.util.List;
+
 
 
 /**
@@ -26,13 +27,13 @@ public interface DAO {
 	 * @param paramObj   参数
 	 * @return
 	 */
-	public <T> T findForObject(String sqlName, Object paramObj) throws Exception;
+	public <T> T findForObject(String sqlName, Object paramObj) ;
 	
 	
 	/**
-	 * 
+	 * 修改对象 
 	 * @Title: update   
-	 * @Description:  修改对象 
+	 * @Description:  
 	 * @param: @param sqlName
 	 * @param: @param paramObj
 	 * @param: @return      
@@ -41,14 +42,24 @@ public interface DAO {
 	public int update(String sqlName, Object paramObj);
 	
 	/**
-	 * 
+	 * 查找多个数据  
 	 * @Title: findForList   
-	 * @Description: 查找多个数据   
+	 * @Description:  
 	 * @param: @param sqlName
 	 * @param: @param paramObj
 	 * @param: @return      
 	 * @return: List<E>
 	 */
 	public  <E> List<E>  findForList(String sqlName,Object paramObj);
+	
+	/**
+	 * 保存对象
+	 * @Title: save   
+	 * @Description: 
+	 * @param: @param sqlName
+	 * @param: @param paramObj      
+	 * @return: void
+	 */
+	public void save(String sqlName, Object paramObj);
 	
 }

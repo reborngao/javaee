@@ -1,10 +1,13 @@
 package com.reborn.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.sun.tools.javac.util.List;
+import com.reborn.pojo.Menu;
+
 
 
 
@@ -36,7 +39,7 @@ public class DaoSupport  implements DAO{
 	 * @throws Exception
 	 */
 	public <T> T findForObject(String sqlName, Object paramObj)
-			throws Exception {
+			 {
 		return sessionTemplate.selectOne(sqlName,paramObj);
 	}
 	/**
@@ -62,5 +65,18 @@ public class DaoSupport  implements DAO{
 	@SuppressWarnings("unchecked")
 	public <E> List<E> findForList(String sqlName, Object paramObj) {
 		return (List<E>) sessionTemplate.selectList(sqlName, paramObj);
+	}
+	
+	/**
+	 *  保存对象
+	 * <p>Title: save</p>   
+	 * <p>Description: </p>   
+	 * @param sqlName
+	 * @param paramObj   
+	 * @see com.reborn.dao.DAO#save(java.lang.String, java.lang.Object)
+	 */
+	public void save(String sqlName, Object paramObj) {
+		// TODO Auto-generated method stub
+		sessionTemplate.insert(sqlName,paramObj);
 	}
 }

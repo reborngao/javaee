@@ -4,7 +4,6 @@
 
 (function($ , undefined) {
 	var sidebar_count = 0;
-
 	function Sidebar(sidebar, settings) {
 		var self = this;
 		this.$sidebar = $(sidebar);
@@ -433,7 +432,6 @@
 	
 
 	//sidebar events
-	
 	//menu-toggler
 	$(document)
 	.on(ace.click_event+'.ace.menu', '.menu-toggler', function(e){

@@ -1,9 +1,9 @@
 package com.reborn.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-
-import javax.jws.soap.SOAPBinding.Use;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -13,7 +13,6 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -24,8 +23,10 @@ import com.reborn.common.util.Const;
 import com.reborn.common.util.DateUtil;
 import com.reborn.common.util.Jurisdiction;
 import com.reborn.common.util.PageData;
+import com.reborn.common.util.RightsHelper;
 import com.reborn.common.util.Tools;
 import com.reborn.manage.service.UserService;
+import com.reborn.pojo.Menu;
 import com.reborn.pojo.User;
 
 /**
@@ -148,6 +149,7 @@ public class LoginController  extends BaseController{
 					user = userService.getUserAndRoleById(user.getUSER_ID());				//通过用户ID读取用户信息和角色信息
 					session.setAttribute(Const.SESSION_USERROL, user);						//存入session	
 				}	
+				mv.setViewName("system/index/main");
 			}
 			else{
 				mv.setViewName("system/index/login");
@@ -157,5 +159,43 @@ public class LoginController  extends BaseController{
 		}
 		return mv;
 		
+	}
+	/**
+	 * 进入tab标签
+	 * @Title: tab   
+	 * @Description:   
+	 * @param: @return      
+	 * @return: String
+	 */
+	@RequestMapping("/tab")
+	public String tab(){
+		return "system/index/tab";
+	}
+	
+	
+	
+	/**
+	 * 菜单缓存
+	 * @Title: getAttributeMenu   
+	 * @Description: TODO(这里用一句话描述这个方法的作用)   
+	 * @param: @return      
+	 * @return: List<Menu>
+	 */
+	public List<Menu> getAttributeMenu(Session session,String userName){
+		List<Menu> allmenuList = new ArrayList<Menu>();
+		if(null==session.getAttribute(userName+Const.SESSION_allmenuList)){//获取所有菜单
+			
+		}
+		else{
+			
+		}
+		return allmenuList;
+	}
+	
+	public List<Menu> readMenu(List<Menu> menuList ,String roleRights){
+		for(int i=0;i<menuList.size();i++){
+			menuList.get(i).setHasMenu(RightsHelper.testRights(roleRights,menuList.get(i).getMenuId()));
+		}
+		return null;
 	}
 }

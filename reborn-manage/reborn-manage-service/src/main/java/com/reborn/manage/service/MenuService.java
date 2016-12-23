@@ -22,4 +22,10 @@ import com.reborn.pojo.Menu;
  */
 public interface MenuService  {
 	public List<Menu> listAllMenuQx(String parentId) ; 
+	
+	public List<Menu> listSubMenuByParentId(String parentId);
+
+	public void saveMenu(Menu menu);
+
+	public Menu getMenuById(String menuId);
 }

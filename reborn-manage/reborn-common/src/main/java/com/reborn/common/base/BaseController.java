@@ -3,6 +3,7 @@ package com.reborn.common.base;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.ModelAndView;
@@ -12,6 +13,7 @@ import com.reborn.common.util.PageData;
 
 
 public class BaseController {
+	
 	
 	private static final long serialVersionUID = 6357869213649815390L;
 	

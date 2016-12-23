@@ -1,19 +1,25 @@
 package com.reborn.pojo;
 
+import java.util.List;
+
 public class Menu {
-    private Integer menuId;
+    private String menuId;
 
     private String menuName;
 
-    private Integer parentId;
+    private String parentId;
 
     private String menuUrl;
+    
+    private String target;
+    private List<Menu> subMenu;
+    private boolean hasMenu = false;
 
-    public Integer getMenuId() {
+    public String getMenuId() {
         return menuId;
     }
 
-    public void setMenuId(Integer menuId) {
+    public void setMenuId(String menuId) {
         this.menuId = menuId;
     }
 
@@ -25,11 +31,11 @@ public class Menu {
         this.menuName = menuName == null ? null : menuName.trim();
     }
 
-    public Integer getParentId() {
+    public String getParentId() {
         return parentId;
     }
 
-    public void setParentId(Integer parentId) {
+    public void setParentId(String parentId) {
         this.parentId = parentId;
     }
 	public String getMenuUrl() {
@@ -39,6 +45,32 @@ public class Menu {
 	public void setMenuUrl(String menuUrl) {
 		this.menuUrl = menuUrl;
 	}
+
+	public boolean isHasMenu() {
+		return hasMenu;
+	}
+
+	public void setHasMenu(boolean hasMenu) {
+		this.hasMenu = hasMenu;
+	}
+
+	public List<Menu> getSubMenu() {
+		return subMenu;
+	}
+
+	public void setSubMenu(List<Menu> subMenu) {
+		this.subMenu = subMenu;
+	}
+
+	public String getTarget() {
+		return target;
+	}
+
+	public void setTarget(String target) {
+		this.target = target;
+	}
+
+	
 
     
 }
