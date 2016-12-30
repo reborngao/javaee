@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="RoleMapper">
+ 		 <resultMap type="Role" id="roleResultMap">
+			<id column="ROLE_ID" property="roleId"/>
+			<result column="ROLE_NAME" property="roleName"/>
+			<result column="RIGHTS" property="rights"/>
+			<result column="PARENT_ID" property="parentId"/>
+			<result column="ADD_QX" property="addQX"/>
+			<result column="DEL_QX" property="delQX"/>
+			<result column="EIDT_QX" property="eidtQX"/>
+			<result column="QUERY_QX" property="queryQX"/>
+		</resultMap> 
+
+		<!--表名  -->
+		<sql id="tableName">
+			SYS_ROLE
+		</sql>
+		<!--字段-->
+		<sql id="Field">
+			ROLE_ID,
+			ROLE_NAME,
+			RIGHTS,
+			PARENT_ID,
+			ADD_QX,
+			DEL_QX,
+			EIDT_QX,
+			QUERY_QX
+		</sql>
+		<!-- 字段值 -->
+		<sql id="FieldValue">
+			#{roleId},
+			#{roleName},
+			#{rights},
+			#{parentId},
+			#{addQX},
+			#{eidtQX},
+			#{delQX},
+			#{queryQX}
+		</sql>
+		<!-- 添加 -->		
+		<insert id="insert" parameterType="Role">
+			INSERT INTO <include refid="tableName"></include>  
+			 (
+			 <include refid="Field"></include>
+			 ) 
+			 VALUES(
+			  <include refid="FieldValue"></include>
+			  )
+		</insert>
+		
+		<!-- 列出此组下的角色 -->
+		<select id="listAllRolesByPId" parameterType="String"  resultMap="roleResultMap">
+			SELECT <include refid="Field"></include>  FROM
+				<include refid="tableName"></include>
+				WHERE PARENT_ID = #{parentId}
+			
+			
+		</select>	
+		<select id="getRoleById" parameterType="String" resultMap="roleResultMap" >
+			SELECT <include refid="Field"></include>  FROM  
+			<include refid="tableName"></include>
+			 WHERE  ROLE_ID=#{roleId}
+		</select>
+		
+		<!-- 给当前角色附加菜单权限  -->
+	<update id="updateRoleRights" parameterType="Role">
+		update 
+		<include refid="tableName"></include>
+		set RIGHTS=#{rights} 
+		where ROLE_ID=#{roleId}
+	</update>
+</mapper>	

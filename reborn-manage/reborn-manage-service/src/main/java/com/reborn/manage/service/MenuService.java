@@ -28,4 +28,6 @@ public interface MenuService  {
 	public void saveMenu(Menu menu);
 
 	public Menu getMenuById(String menuId);
+	
+	public List<Menu> listAll();
 }

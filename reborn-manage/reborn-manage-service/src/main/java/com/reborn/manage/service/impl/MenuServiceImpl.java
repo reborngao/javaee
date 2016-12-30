@@ -71,4 +71,12 @@ public class MenuServiceImpl implements MenuService {
 	public Menu getMenuById(String menuId) {
 		return daoSupport.findForObject("MenuMapper.getMenuById", menuId);
 	}
+	public List<Menu> listAll() {
+	 List<Menu> menuList=	daoSupport.findForList("MenuMapper.listAll", null);
+		for(Menu menu : menuList){
+			menu.setMenuUrl("menu/toEidt?menuId="+menu.getMenuId());
+			menu.setTarget("treeFrame");
+		}
+		return menuList;
+	}
 }
