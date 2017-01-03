@@ -12,18 +12,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <base href="<%=basePath %>">
-<%@ include file="../index/top.jsp"%>
-<script type="text/javascript" src="static/js/jquery-1.7.2.js"></script>
-<link type="text/css" rel="stylesheet" href="plugins/zTree/2.6/zTreeStyle.css"/>
-	<script type="text/javascript" src="plugins/zTree/2.6/jquery.ztree-2.6.min.js"></script>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="plugins/zTree/3.5/css/zTreeStyle/zTreeStyle.css" type="text/css">
+	<script type="text/javascript" src="plugins/zTree/3.5/js/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="plugins/zTree/3.5/js/jquery.ztree.core.js"></script>
+	<script type="text/javascript" src="plugins/zTree/3.5/js/jquery.ztree.excheck.js"></script>
+	<script type="text/javascript" src="plugins/zTree/3.5/js/jquery.ztree.exedit.js"></script>
 </head>
+<style type="text/css">
+.ztree li span.button.add {margin-left:2px; margin-right: -1px; background-position:-144px 0; vertical-align:top; *vertical-align:middle}
+	</style>
 <body>
-
+<div class="content_wrap">
 <table style="width: 100%;border: 0">
 	<tr>
 		<td style="width:15%;" valign="top" bgcolor="#F9F9F9">
 			<div  >
-				<ul id="leftTree" class="tree"  ></ul>
+				<ul id="leftTree" class="ztree"  ></ul>
 			</div>
 		</td>
 		<td style="width:85%;">
@@ -32,18 +37,61 @@
 	</tr>
 	
 </table>
+</div>
 </body>
 
 <script type="text/javascript">
-var zTree;
-	$(document).ready(function (){
-		var zNodes='${zTreeNodes}';
-		var setting={
-				 showLine: true,
-				 checkable: false
+var setting = {
+		view: {
+			addHoverDom: addHoverDom,
+			removeHoverDom: removeHoverDom,
+			selectedMulti: false
+		},
+		edit: {
+			enable: true,
+			editNameSelectAll: true,
+			showRenameBtn: false,
+			showRemoveBtn: true
+		},
+		data: {
+			simpleData: {
+				enable: true,
+				
+			}
+		},
+		callback: {
+			onClick: onClick,
+			
 		}
-		var zTreeNodes=eval(zNodes);
-		zTree=$("#leftTree").zTree(setting,zTreeNodes);
+	};
+	
+	
+	 
+	
+	function onClick(event, treeId, treeNode){
+		$("#"+treeNode.target).attr("src",treeNode.url);
+	}
+	function addHoverDom(treeId, treeNode) {
+	
+		var sObj = $("#" + treeNode.tId + "_span");
+		if (treeNode.editNameFlag || $("#addBtn_"+treeNode.tId).length>0) return;
+		var addStr = "<span class='button add' id='addBtn_" + treeNode.tId
+			+ "' title='add node' onfocus='this.blur();'></span>";
+		sObj.after(addStr);
+		var btn = $("#addBtn_"+treeNode.tId);
+		if (btn) btn.bind("click", function(){
+			$("#"+treeNode.target).attr("src","menu/toAdd?menuId="+treeNode.id+"&menuName="+treeNode.name);
+			return false;
+		});
+	};
+	function removeHoverDom(treeId, treeNode) {
+		$("#addBtn_"+treeNode.tId).unbind().remove();
+	};
+	$(document).ready(function(){
+		var zTreeNodes='${zTreeNodes}';
+		var zNodes=eval(zTreeNodes);
+		$.fn.zTree.init($("#leftTree"), setting, zNodes);
+		
 	});
 
 	function treeFrameT(){

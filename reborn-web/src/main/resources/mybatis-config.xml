@@ -37,6 +37,7 @@
 	<typeAliases>
 		<typeAlias type="com.reborn.pojo.User" alias="User"/>
 		<typeAlias type="com.reborn.pojo.Menu" alias="Menu"/>
+		<typeAlias type="com.reborn.pojo.Role" alias="Role"/>
 		<!-- 这里添加生成的实体类 -->
 		
 		<typeAlias type="com.reborn.common.util.PageData" alias="pd"/>

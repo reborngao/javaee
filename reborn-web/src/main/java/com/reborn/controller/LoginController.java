@@ -24,7 +24,7 @@ import com.reborn.common.util.DateUtil;
 import com.reborn.common.util.Jurisdiction;
 import com.reborn.common.util.PageData;
 import com.reborn.common.util.RightsHelper;
-import com.reborn.common.util.Tools;
+import com.reborn.common.util.StringUtil;
 import com.reborn.manage.service.UserService;
 import com.reborn.pojo.Menu;
 import com.reborn.pojo.User;
@@ -84,7 +84,7 @@ public class LoginController  extends BaseController{
 			else{
 				String USERNAME = KEYDATA[0];	//登录过来的用户名
 				String PASSWORD  = KEYDATA[1];	//登录过来的密码
-				if(Tools.notEmpty(sessionCode)&&sessionCode.equalsIgnoreCase(code)){///判断登录验证码
+				if(StringUtil.notEmpty(sessionCode)&&sessionCode.equalsIgnoreCase(code)){///判断登录验证码
 					String passwd = new SimpleHash("SHA-1", USERNAME, PASSWORD).toString();	//密码加密
 					pd.put("USER_NAME", USERNAME);
 					pd.put("PASSWORD", passwd);
@@ -114,7 +114,7 @@ public class LoginController  extends BaseController{
 				else{
 					errInfo = "codeerror";				 	//验证码输入有误
 				}
-				if(Tools.isEmpty(errInfo)) {
+				if(StringUtil.isEmpty(errInfo)) {
 					errInfo="success";           ////验证成功
 					logBefore(logger, USERNAME+"登录系统");
 				}
@@ -138,8 +138,7 @@ public class LoginController  extends BaseController{
 	@RequestMapping("/main/{changeMenu}")
 	public ModelAndView loginIndex(@PathVariable("changeMenu") String changeMenu){
 		ModelAndView mv = this.getModelAndView();
-		PageData pd = new PageData();
-		pd = this.getPageData();
+	//	PageData pd = this.getPageData();
 		try{
 			Session session=Jurisdiction.getSession();
 			User  user=(User) session.getAttribute(Const.SESSION_USER);              		//读取session中的用户信息(单独用户信息)

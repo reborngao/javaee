@@ -43,14 +43,14 @@
 		<!-- Maven定制化打包后的包名(加入时间戳) finalName 生成最后的文件的样式 -->
 		<!--  <finalName>${project.artifactId}_${project.version}_${maven.build.timestamp}</finalName>  -->
 		<!-- <finalName>${project.artifactId}</finalName> -->
-		<resources>
+		 <resources>
 			<resource>
-				<!--directory: 资源所在的位置 -->
+				<!-- directory: 资源所在的位置 -->
 				<directory>src/main/resources</directory>
-				<!--filtering: 是否替换资源中的属性placehold -->
+				<!-- filtering: 是否替换资源中的属性placehold -->
 				<filtering>true</filtering>
 			</resource>
-		</resources>
+		</resources> 
 		<plugins>
 			<!-- 编译版本 -->
 			<plugin>

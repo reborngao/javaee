@@ -26,7 +26,7 @@ public class RightsHelper {
 	 * @return: boolean
 	 */
 	public static boolean testRights(String sum, String targetRights) {
-		if(Tools.isEmpty(sum)) return false;
+		if(StringUtil.isEmpty(sum)) return false;
 		return testRights(new BigInteger(sum), targetRights);
 	}
 	/***
@@ -64,7 +64,7 @@ public class RightsHelper {
 	 * @return: boolean
 	 */
 	public static boolean testRights(String sum,int targetRights){
-		if(Tools.isEmpty(sum))
+		if(StringUtil.isEmpty(sum))
 			return false;
 		return testRights(new BigInteger(sum),targetRights);
 	}
