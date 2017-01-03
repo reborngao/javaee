@@ -1,8 +1,16 @@
 package com.reborn.controller;
 
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.reborn.common.base.BaseController;
+import com.reborn.manage.service.UserService;
+import com.reborn.pojo.User;
 
 
 /**
@@ -19,7 +27,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping("/user")
-public class UserController {
+public class UserController  extends BaseController{
+	
+	@Autowired
+	UserService  userService;
+	
 	/**
 	 * 显示用户列表
 	 * @Title: listUsers   
@@ -29,6 +41,9 @@ public class UserController {
 	 */
 	@RequestMapping("/listUsers")
 	public void listUsers(){
-		
+		  List<User> users= userService.listUsers();
+		  ModelAndView mv = this.getModelAndView();
+		  mv.addObject("users", users);
+		  mv.setViewName("system/");
 	}
 }

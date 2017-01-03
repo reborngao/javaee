@@ -63,8 +63,8 @@ public class DaoSupport  implements DAO{
 	 * @see com.reborn.dao.DAO#findForList(java.lang.String, java.lang.Object)
 	 */
 	@SuppressWarnings("unchecked")
-	public <E> List<E> findForList(String sqlName, Object paramObj) {
-		return (List<E>) sessionTemplate.selectList(sqlName, paramObj);
+	public <T> List<T> findForList(String sqlName, Object paramObj) {
+		return  sessionTemplate.selectList(sqlName, paramObj);
 	}
 	
 	/**

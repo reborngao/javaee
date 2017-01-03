@@ -43,7 +43,7 @@
 				<b class="arrow fa fa-angle-down"></b>
 			</li>
 			<li>
-					<a style="cursor: pointer;"  onclick="siMenu('m37','z22','系统用户','menu/listAllMenu')">
+					<a style="cursor: pointer;"  onclick="siMenu('m37','z22','系统用户','user/listUsers')">
 					<i class="menu-icon fa fa-leaf black"></i>
 					<span class="menu-text">系统用户</span>
 				</a>

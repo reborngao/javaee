@@ -61,4 +61,8 @@
 		   ON u.ROLE_ID=r.ROLE_ID  
 		   WHERE u.USER_ID=#{USER_ID}
 		</select>
+		<!-- 用户列表 -->
+		<select id="listUsers" resultType="User">
+			SELECT   <include refid="Field"></include>  FROM  <include refid="tableName"></include>
+		</select>
 </mapper>	

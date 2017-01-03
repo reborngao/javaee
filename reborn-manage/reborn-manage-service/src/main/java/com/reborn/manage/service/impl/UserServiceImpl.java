@@ -1,5 +1,6 @@
 package com.reborn.manage.service.impl;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,5 +70,9 @@ public class UserServiceImpl  implements  UserService{
 	 */
 	public User getUserAndRoleById(String userId) throws Exception {
 		return (User) daoSupport.findForObject("UserMapper.getUserAndRoleById", userId);
+	}
+
+	public List<User> listUsers() {
+		return daoSupport.findForList("UserMapper.userlistPage", null);
 	}
 }

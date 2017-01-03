@@ -1,5 +1,7 @@
 package com.reborn.manage.service;
 
+import java.util.List;
+
 import com.reborn.common.util.PageData;
 import com.reborn.pojo.User;
 
@@ -35,4 +37,14 @@ public interface UserService {
 	 * @return: User
 	 */
 	public User getUserAndRoleById(String userId)throws Exception;
+	
+	
+	/**
+	 * 用户列表
+	 * @Title: listUsers   
+	 * @Description: 
+	 * @param: @return      
+	 * @return: List<User>
+	 */
+	public List<User>  listUsers();
 }
