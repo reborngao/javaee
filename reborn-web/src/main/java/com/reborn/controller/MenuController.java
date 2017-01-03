@@ -1,18 +1,11 @@
 package com.reborn.controller;
 
 import java.util.List;
-
-import javax.annotation.Resource;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.alibaba.druid.support.json.JSONUtils;
 import com.reborn.common.base.BaseController;
 import com.reborn.common.util.JsonUtil;
 import com.reborn.common.util.PageData;
@@ -29,8 +22,8 @@ public class MenuController extends  BaseController{
 	
 	
 	private  String getMenuId(PageData pd){
-		return (null==pd.get("MENU_ID")||"".equals(pd.get("MENU_ID").toString()))
-		?"0":pd.get("MENU_ID").toString();
+		return (null==pd.get("menuId")||"".equals(pd.get("menuId").toString()))
+		?"0":pd.get("menuId").toString();
 	}
 	
 	
@@ -65,10 +58,11 @@ public class MenuController extends  BaseController{
 	 * @return: ModelAndView
 	 */
 	@RequestMapping(value="/toAdd")
-	public ModelAndView toAdd(){
+	public ModelAndView toAdd(String menuName){
 		ModelAndView mv = this.getModelAndView();
 		String menuId=getMenuId(this.getPageData());
 		mv.addObject("menuId", menuId);
+		mv.addObject("parentMenuName",null==menuName?null:menuName);
 		mv.addObject("action","add");
 		mv.setViewName("system/menu/menu_edit");
 		return mv;
@@ -114,7 +108,7 @@ public class MenuController extends  BaseController{
 		}catch(Exception e){
 			logger.error(e.toString(), e);
 		}
-		mv.setViewName("redirect");
+		mv.setViewName("redirect:/menu?MSG='change'&MENU_ID="+menu.getParentId());
 		return mv;
 	}
 	
@@ -135,7 +129,7 @@ public class MenuController extends  BaseController{
 			logger.info(json);
 			json=json.replaceAll("menuName", "name").replaceAll("menuId", "id")
 					.replaceAll("menuUrl", "url").replaceAll("parentId", "pId")
-					.replaceAll("subMenu", "nodes").replaceAll("hasMenu", "checked");
+					.replaceAll("subMenu", "children").replaceAll("hasMenu", "open");
 			logger.info(json);
 			model.addAttribute("zTreeNodes", json);
 		}catch(Exception e){

@@ -30,12 +30,19 @@
 		#{menuUrl}
 	</sql>
 	<!--通过ID获取其子一级菜单 -->
-	<select id="listSubMenuByParentId" parameterType="String" resultMap="menuResultMap">
+	 <select id="listSubMenuByParentId" parameterType="String" resultMap="menuResultMap">
 		SELECT 
 		<include refid="Field"></include>
 		 FROM <include refid="tableName"/> WHERE 
 		PARENT_ID=#{parentId}
-	</select>
+	</select> 
+	
+	<select id="listAll"  resultMap="menuResultMap">
+		SELECT 
+		<include refid="Field"></include>
+		 FROM <include refid="tableName"/>
+		
+	</select> 
 	
 	<!-- 新增  -->
 	<insert id="insertMenu" parameterType="Menu">

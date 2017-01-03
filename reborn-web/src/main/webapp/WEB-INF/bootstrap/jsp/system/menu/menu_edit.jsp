@@ -23,7 +23,15 @@
 			<div class="page-header">
 				<h1>
 					<small> <i class="ace-icon fa fa-angle-double-right"></i>
-						编辑菜单
+					<c:choose>
+						<c:when test="${action=='add'}">
+								增加菜单
+						</c:when>
+						<c:otherwise>
+							编辑菜单
+						</c:otherwise>
+					</c:choose>
+						
 					</small>
 				</h1>
 			</div>
@@ -96,7 +104,16 @@
 						
 						<div class="form-actions clearfix">
 						<div class="col-md-offset-3 col-md-9">
-							<a class="btn btn-mini btn-primary"  onclick="save();">保存</a>
+							<a class="btn btn-mini btn-primary"  onclick="save();">
+							<c:choose>
+						<c:when test="${action=='add'}">
+								保存
+						</c:when>
+						<c:otherwise>
+							修改
+						</c:otherwise>
+					</c:choose>
+							</a>
 							<a class="btn btn-mini btn-danger">取消</a>
 						</div>
 						</div>	

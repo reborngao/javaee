@@ -51,5 +51,11 @@
 	<!--引入属于此页面的js -->
 	<script  src="static/js/myjs/head.js"></script>
 	<script  src="static/js/myjs/index.js"></script>
+	
+	<!--引入弹窗组件2start-->
+		<script type="text/javascript" src="plugins/attention/drag/drag.js"></script>
+		<script type="text/javascript" src="plugins/attention/drag/dialog.js"></script>
+		<link type="text/css" rel="stylesheet" href="plugins/attention/drag/style.css"  />
+	<!--引入弹窗组件2end-->
 </body>
 </html>
