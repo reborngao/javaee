@@ -7,7 +7,7 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<!-- 整个项目统一字符集编�?-->
+		<!-- 整个项目统一字符集编�?-->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.build.timestamp.format>yyyyMMdd</maven.build.timestamp.format>
 		<spring.version>4.2.0.RELEASE</spring.version>
@@ -19,12 +19,11 @@
 		<module>reborn-manage-dao</module>
 		<module>reborn-manage-pojo</module>
 		<module>reborn-common</module>
-    <module>rebron-manage-web</module>
   </modules>
 
 	<dependencyManagement>
 		<dependencies>
-			<!--springmvc 控制�?start -->
+			<!--springmvc 控制�?start -->
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-webmvc</artifactId>
@@ -66,8 +65,8 @@
 				<artifactId>spring-core</artifactId>
 				<version>${spring.version}</version>
 			</dependency>
-			<!--springmvc 控制�?end -->
-			<!--jackson 控制�?start -->
+			<!--springmvc 控制�?end -->
+			<!--jackson 控制�?start -->
 			<dependency>
 				<groupId>com.fasterxml.jackson.core</groupId>
 				<artifactId>jackson-databind</artifactId>
@@ -83,9 +82,9 @@
 				<artifactId>jackson-dataformat-xml</artifactId>
 				<version>${jackson.version}</version>
 			</dependency>
-			<!--jackson 控制�?end -->
+			<!--jackson 控制�?end -->
 
-			<!--mybatis 数据访问�?start -->
+			<!--mybatis 数据访问�?start -->
 			<dependency>
 				<groupId>mysql</groupId>
 				<artifactId>mysql-connector-java</artifactId>
@@ -113,7 +112,7 @@
 				<version>${spring.version}</version>
 			</dependency>
 
-			<!--mybatis 数据访问�?end -->
+			<!--mybatis 数据访问�?end -->
 		</dependencies>
 	</dependencyManagement>
 

@@ -43,5 +43,11 @@
 		<typeAlias type="com.reborn.common.util.PageData" alias="pd"/>
 	
 	</typeAliases> 
-	
+	<plugins>
+		<plugin interceptor="com.reborn.plugin.PagePlugin" >
+			<property name="dialect" value="mysql"/>
+			<property name="pageSqlId" value=".*listPage.*"/>
+		</plugin>
+		
+	</plugins>
 </configuration>

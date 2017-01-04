@@ -39,6 +39,12 @@
 					<span class="menu-text">菜单管理</span>
 				</a>
 				<b class="arrow fa fa-angle-down"></b>
+				
+				<a style="cursor: pointer;"  onclick="siMenu('m37','z22','用户管理','menu/listAllMenu')">
+					<i class="menu-icon fa fa-leaf black"></i>
+					<span class="menu-text">用户管理</span>
+				</a>
+				<b class="arrow fa fa-angle-down"></b>
 			</li>
 		</ul>
 	</div>
